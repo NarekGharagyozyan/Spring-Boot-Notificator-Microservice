@@ -33,6 +33,12 @@ public class NotificationController {
         return ResponseEntity.ok(notificationResponseDto);
     }
 
+    @PostMapping("/verify")
+    public ResponseEntity<NotificationResponseDto> sendVerificationCode(@RequestBody NotificationRequestDto notificationRequestDto) {
+        NotificationResponseDto notificationResponseDto = notificationService.createForVerification(notificationRequestDto);
+        return ResponseEntity.ok(notificationResponseDto);
+    }
+
     @GetMapping("/ready")
     public ResponseEntity<List<NotificationResponseDto>> getReady(@RequestParam Integer userId) {
         List<NotificationResponseDto> readyNotifications = notificationService.getNotifications(true, userId);

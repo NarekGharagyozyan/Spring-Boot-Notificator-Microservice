@@ -11,32 +11,23 @@ import javax.validation.constraints.NotNull;
 
 @Setter
 @Getter
-@Validated
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class NotificationRequestDto {
 
-    @NotNull
     Integer userId;
 
-    @NotBlank
     String title;
 
-    @NotBlank
     String content;
 
-    @NotBlank
     String description;
 
-    @NotNull
     Long notificationDate;
 
-    @NotNull
     Long createDate;
 
-    @NotNull
     Boolean sent;
 
-    @NotBlank
     String email;
 
 }

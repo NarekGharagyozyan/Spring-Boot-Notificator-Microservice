@@ -30,7 +30,6 @@ public class NotificationEntity {
     @Column(nullable = false)
     String content;
 
-    @Column(nullable = false)
     String description;
 
     @Column(nullable = false)

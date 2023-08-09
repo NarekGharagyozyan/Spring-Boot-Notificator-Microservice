@@ -7,6 +7,7 @@ import com.smartcode.notificator.model.entity.NotificationEntity;
 import com.smartcode.notificator.repository.NotificationRepository;
 import com.smartcode.notificator.service.NotificationService;
 import com.smartcode.notificator.service.email.EmailService;
+import com.smartcode.notificator.util.constants.Message;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -37,6 +38,18 @@ public class NotificationServiceImpl implements NotificationService {
     public NotificationResponseDto create(NotificationRequestDto notificationRequestDto) {
         NotificationEntity entity = notificationMapper.toEntity(notificationRequestDto);
         return notificationMapper.toDto(notificationRepository.save(entity));
+    }
+
+    @Override
+    @Transactional
+    public NotificationResponseDto createForVerification(NotificationRequestDto notificationRequestDto) {
+        NotificationEntity entity = notificationMapper.toEntity(notificationRequestDto);
+        entity.setNotificationDate(System.currentTimeMillis());
+        entity.setCreateDate(System.currentTimeMillis());
+        emailService.sendSimpleMessage(entity.getEmail(), entity.getTitle(), entity.getContent());
+        entity.setSent(true);
+        notificationRepository.save(entity);
+        return notificationMapper.toDto(entity);
     }
 
     @Override
