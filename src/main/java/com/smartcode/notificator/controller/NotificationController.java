@@ -1,9 +1,11 @@
 package com.smartcode.notificator.controller;
 
 
-import com.smartcode.notificator.model.dto.NotificationRequestDto;
-import com.smartcode.notificator.model.dto.NotificationResponseDto;
-import com.smartcode.notificator.service.NotificationService;
+import com.smartcode.notificator.model.dto.action.ActionRequestDto;
+import com.smartcode.notificator.model.dto.notification.NotificationRequestDto;
+import com.smartcode.notificator.model.dto.notification.NotificationResponseDto;
+import com.smartcode.notificator.service.action.ActionService;
+import com.smartcode.notificator.service.notification.NotificationService;
 import com.smartcode.notificator.util.constants.Path;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -27,25 +29,25 @@ public class NotificationController {
 
     NotificationService notificationService;
 
-    @PostMapping("/create")
+    @PostMapping(Path.CREATE)
     public ResponseEntity<NotificationResponseDto> create(@RequestBody NotificationRequestDto notificationRequestDto) {
         NotificationResponseDto notificationResponseDto = notificationService.create(notificationRequestDto);
         return ResponseEntity.ok(notificationResponseDto);
     }
 
-    @PostMapping("/verify")
+    @PostMapping(Path.VERIFY)
     public ResponseEntity<NotificationResponseDto> sendVerificationCode(@RequestBody NotificationRequestDto notificationRequestDto) {
         NotificationResponseDto notificationResponseDto = notificationService.createForVerification(notificationRequestDto);
         return ResponseEntity.ok(notificationResponseDto);
     }
 
-    @GetMapping("/ready")
+    @GetMapping(Path.READY)
     public ResponseEntity<List<NotificationResponseDto>> getReady(@RequestParam Integer userId) {
         List<NotificationResponseDto> readyNotifications = notificationService.getNotifications(true, userId);
         return ResponseEntity.ok(readyNotifications);
     }
 
-    @GetMapping("/waiting")
+    @GetMapping(Path.WAITING)
     public ResponseEntity<List<NotificationResponseDto>> getWaiting(@RequestParam Integer userId) {
         List<NotificationResponseDto> readyNotifications = notificationService.getNotifications(false, userId);
         return ResponseEntity.ok(readyNotifications);

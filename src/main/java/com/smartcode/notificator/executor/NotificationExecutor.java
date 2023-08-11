@@ -1,8 +1,7 @@
 package com.smartcode.notificator.executor;
 
-import com.smartcode.notificator.model.dto.NotificationResponseDto;
 import com.smartcode.notificator.model.entity.NotificationEntity;
-import com.smartcode.notificator.service.NotificationService;
+import com.smartcode.notificator.service.notification.NotificationService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

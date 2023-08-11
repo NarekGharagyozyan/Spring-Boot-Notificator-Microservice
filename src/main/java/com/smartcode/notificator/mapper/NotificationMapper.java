@@ -1,7 +1,7 @@
 package com.smartcode.notificator.mapper;
 
-import com.smartcode.notificator.model.dto.NotificationRequestDto;
-import com.smartcode.notificator.model.dto.NotificationResponseDto;
+import com.smartcode.notificator.model.dto.notification.NotificationRequestDto;
+import com.smartcode.notificator.model.dto.notification.NotificationResponseDto;
 import com.smartcode.notificator.model.entity.NotificationEntity;
 import org.mapstruct.Mapper;
 
@@ -12,6 +12,5 @@ public interface NotificationMapper {
 
     NotificationEntity toEntity(NotificationRequestDto notificationRequestDto);
     NotificationResponseDto toDto(NotificationEntity notificationEntity);
-
     List<NotificationResponseDto> toDtoList (List<NotificationEntity> notificationEntities);
 }

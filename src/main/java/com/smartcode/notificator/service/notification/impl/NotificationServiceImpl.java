@@ -1,13 +1,12 @@
-package com.smartcode.notificator.service.impl;
+package com.smartcode.notificator.service.notification.impl;
 
 import com.smartcode.notificator.mapper.NotificationMapper;
-import com.smartcode.notificator.model.dto.NotificationRequestDto;
-import com.smartcode.notificator.model.dto.NotificationResponseDto;
+import com.smartcode.notificator.model.dto.notification.NotificationRequestDto;
+import com.smartcode.notificator.model.dto.notification.NotificationResponseDto;
 import com.smartcode.notificator.model.entity.NotificationEntity;
 import com.smartcode.notificator.repository.NotificationRepository;
-import com.smartcode.notificator.service.NotificationService;
+import com.smartcode.notificator.service.notification.NotificationService;
 import com.smartcode.notificator.service.email.EmailService;
-import com.smartcode.notificator.util.constants.Message;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -15,6 +14,10 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.List;
 
 @Service
