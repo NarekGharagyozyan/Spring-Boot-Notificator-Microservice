@@ -1,6 +1,5 @@
 package com.smartcode.notificator.service.notification;
 
-import com.smartcode.notificator.model.dto.action.ActionRequestDto;
 import com.smartcode.notificator.model.dto.notification.NotificationRequestDto;
 import com.smartcode.notificator.model.dto.notification.NotificationResponseDto;
 import com.smartcode.notificator.model.entity.NotificationEntity;

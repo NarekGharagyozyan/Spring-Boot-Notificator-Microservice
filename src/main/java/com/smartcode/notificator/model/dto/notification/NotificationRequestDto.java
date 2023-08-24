@@ -8,27 +8,27 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Setter
 @Getter
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class NotificationRequestDto {
+public class NotificationRequestDto implements Serializable {
 
-    Integer userId;
+    private Integer userId;
 
-    String title;
+    private String title;
 
-    String content;
+    private String content;
 
-    String description;
+    private String description;
 
-    Long notificationDate;
+    private Long notificationDate;
 
-    Long createDate;
+    private Long createDate;
 
-    Boolean sent;
+    private Boolean sent;
 
-    String email;
+    private String email;
 
 }

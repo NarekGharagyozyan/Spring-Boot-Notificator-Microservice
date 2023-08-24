@@ -1,10 +1,8 @@
 package com.smartcode.notificator.controller;
 
 
-import com.smartcode.notificator.model.dto.action.ActionRequestDto;
 import com.smartcode.notificator.model.dto.notification.NotificationRequestDto;
 import com.smartcode.notificator.model.dto.notification.NotificationResponseDto;
-import com.smartcode.notificator.service.action.ActionService;
 import com.smartcode.notificator.service.notification.NotificationService;
 import com.smartcode.notificator.util.constants.Path;
 import lombok.AccessLevel;
