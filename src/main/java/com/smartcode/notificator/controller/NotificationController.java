@@ -21,11 +21,10 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequestMapping(Path.NOTIFY)
 public class NotificationController {
 
-    NotificationService notificationService;
+    private final NotificationService notificationService;
 
     @PostMapping(Path.CREATE)
     public ResponseEntity<NotificationResponseDto> create(@RequestBody NotificationRequestDto notificationRequestDto) {
