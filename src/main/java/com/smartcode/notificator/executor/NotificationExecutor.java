@@ -12,10 +12,9 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class NotificationExecutor {
 
-    NotificationService notificationService;
+    private final NotificationService notificationService;
 
     @Scheduled(fixedDelay = 30000)
     public void start() {

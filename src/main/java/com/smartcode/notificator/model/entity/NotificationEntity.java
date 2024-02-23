@@ -13,35 +13,33 @@ import javax.persistence.Id;
 
 @Setter
 @Getter
-@FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity(name = "notifications")
 public class NotificationEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
 
     @Column(nullable = false)
-    Integer userId;
+    private Integer userId;
 
     @Column(nullable = false)
-    String title;
+    private String title;
 
     @Column(nullable = false)
-    String content;
+    private String content;
 
-    String description;
-
-    @Column(nullable = false)
-    Long notificationDate;
+    private String description;
 
     @Column(nullable = false)
-    Long createDate;
+    private Long notificationDate;
 
     @Column(nullable = false)
-    Boolean sent;
+    private Long createDate;
 
     @Column(nullable = false)
-    String email;
+    private Boolean sent;
 
+    @Column(nullable = false)
+    private String email;
 }
